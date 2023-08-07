@@ -45,13 +45,11 @@ class _ExpensesState extends State<Expenses> {
             ),
           ],
         ),
-        body: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
-                Expanded(child: ExpensesList(expenses: _registeredExpenses)),
-              ],
-            ),
+        body: Center(
+          child: Column(
+            children: [
+              Expanded(child: ExpensesList(expenses: _registeredExpenses)),
+            ],
           ),
         ));
   }
