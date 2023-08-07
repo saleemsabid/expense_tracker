@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 //local imports
-import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/models/expense.dart';
+import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
+import 'package:expense_tracker/widgets/new_expense_screen.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -43,7 +44,14 @@ class _ExpensesState extends State<Expenses> {
           actions: [
             IconButton(
               icon: const Icon(Icons.add),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => const NewExpenseScreen(),
+                  );
+                });
+              },
             ),
           ],
         ),
