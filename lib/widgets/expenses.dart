@@ -15,6 +15,12 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
+  void _addExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.add(expense);
+    });
+  }
+
   final List<Expense> _registeredExpenses = [
     Expense(
       title: 'Trip to Tirur',
@@ -47,8 +53,11 @@ class _ExpensesState extends State<Expenses> {
               onPressed: () {
                 setState(() {
                   showModalBottomSheet(
+                    isScrollControlled: true,
                     context: context,
-                    builder: (context) => const NewExpenseScreen(),
+                    builder: (context) => NewExpenseScreen(
+                      onAddExpense: _addExpense,
+                    ),
                   );
                 });
               },
