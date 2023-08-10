@@ -55,7 +55,7 @@ class _ExpensesState extends State<Expenses> {
                   showModalBottomSheet(
                     isScrollControlled: true,
                     context: context,
-                    builder: (context) => NewExpenseScreen(
+                    builder: (ctx) => NewExpenseScreen(
                       onAddExpense: _addExpense,
                     ),
                   );
