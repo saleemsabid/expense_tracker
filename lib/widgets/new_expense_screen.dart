@@ -68,9 +68,7 @@ class _NewExpenseScreenState extends State<NewExpenseScreen> {
       category: _selectedCategory,
       date: _selectedDate!,
     ));
-    setState(() {
-      Navigator.pop(context);
-    });
+    Navigator.pop(context);
   }
 
   @override
