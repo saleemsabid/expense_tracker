@@ -66,6 +66,9 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    // var screenHeight = MediaQuery.of(context).size.height;
+
     Widget mainContent = const Center(
       child: Text('No Expenses Found, Start Adding Some'),
     );
@@ -85,6 +88,7 @@ class _ExpensesState extends State<Expenses> {
               onPressed: () {
                 setState(() {
                   showModalBottomSheet(
+                    useSafeArea: true,
                     isScrollControlled: true,
                     context: context,
                     builder: (ctx) => NewExpenseScreen(
@@ -97,14 +101,24 @@ class _ExpensesState extends State<Expenses> {
           ],
         ),
         body: Center(
-          child: Column(
-            children: [
-              Chart(expenses: _registeredExpenses),
-              Expanded(
-                child: mainContent,
-              ),
-            ],
-          ),
+          child: screenWidth >= 450
+              ? Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(child: Chart(expenses: _registeredExpenses)),
+                    Expanded(
+                      child: mainContent,
+                    ),
+                  ],
+                )
+              : Column(
+                  children: [
+                    Chart(expenses: _registeredExpenses),
+                    Expanded(
+                      child: mainContent,
+                    ),
+                  ],
+                ),
         ));
   }
 }
