@@ -83,7 +83,8 @@ class _NewExpenseScreenState extends State<NewExpenseScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 24),
       child: Column(children: [
-        const Text('Add Your New Expenses Here'),
+        Text('Add Your New Expenses Here',
+            style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(
           height: 16,
         ),

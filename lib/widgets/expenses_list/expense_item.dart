@@ -9,9 +9,18 @@ class ExpenseItem extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Icon(categoryIcons[expense.category]),
-        title: Text(expense.title),
+        title: Text(
+          expense.title,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         subtitle: Text(expense.formattedDate),
-        trailing: Text('\$ ${expense.amount.toStringAsFixed(2)}'),
+        trailing: Text(
+          '\$ ${expense.amount.toStringAsFixed(2)}',
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
       ),
     );
   }
